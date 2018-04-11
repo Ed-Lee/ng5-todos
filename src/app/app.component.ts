@@ -29,6 +29,12 @@ export class AppComponent {
     this.todo = '';
   }
 
+  remove(item: ITodoModel) {
+    this.todos = [...this.todos.filter(
+      todo => todo.id != item.id
+    )];
+  }
+
   toggleCheckbox(item: ITodoModel) {
     item.completed = !item.completed;
     this.todos = [...this.todos];

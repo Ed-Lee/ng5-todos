@@ -17,7 +17,7 @@
         <div class="view">
           <input class="toggle" type="checkbox" (click)="toggleCheckbox(item)">
           <label>{{item.name | uppercase}}</label>
-          <button class="destroy"></button>
+          <button class="destroy" (click)="remove(item)"></button>
         </div>
         <input class="edit" value="Create a TodoMVC template">
       </li>
