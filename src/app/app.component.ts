@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   inputHint = 'What needs to be done?';
-  colspan: number = 2;
+  todos: any[] = [];
+
+  onEnter(inputElement) {
+    this.todos.push(inputElement.value);
+    inputElement.value = '';
+  }
+
 }
