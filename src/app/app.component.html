@@ -24,7 +24,8 @@
     </ul>
   </section>
   <!-- This footer should hidden by default and shown when there are todos -->
-  <app-footer [todos]="todos"></app-footer>
+  <app-footer [todos]="todos"
+              (clearCompleted)="doClearCompleted($event)"></app-footer>
 </section>
 <footer class="info">
   <p>Double-click to edit a todo</p>

@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -13,16 +13,14 @@ export class FooterComponent implements OnInit, OnChanges {
     this._todos = value;
     this.styleObj = this.getLeftCount(this.todos) < 3 ? {} : {'color': 'red', 'font-weight': 'bold'};
   }
-
   get todos(): ITodoModel[] {
     return this._todos
   }
 
+  @Output() clearCompleted: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   styleObj = {};
 
-  getLeftCount(todos: ITodoModel[]) {
-    return todos.filter(todo => !todo.completed).length;
-  }
 
   constructor() { }
 
@@ -41,5 +39,12 @@ export class FooterComponent implements OnInit, OnChanges {
     //     console.log(this.styleObj);
     //   }
     // }
+  }
+  getLeftCount(todos: ITodoModel[]) {
+    return todos.filter(todo => !todo.completed).length;
+  }
+
+  onClearCompleted(clear: boolean) {
+    this.clearCompleted.emit(clear);
   }
 }

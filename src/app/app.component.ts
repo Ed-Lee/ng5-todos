@@ -33,4 +33,12 @@ export class AppComponent {
     this.todos = [...this.todos];
   }
 
+  doClearCompleted(event: boolean) {
+    if (event) {
+      this.todos = this.todos.filter(
+        todo => !todo.completed
+      );
+    }
+  }
+
 }
