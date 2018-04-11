@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   inputHint = 'What needs to be done?';
-  todos: any[] = [];
+  todos: ITodoModel[] = new Array<ITodoModel>();
+  todoCounter: number = 0;
   todo: string;
 
   onEnter(inputElement) {
@@ -17,8 +18,17 @@ export class AppComponent {
   }
 
   add(todo: string) {
-    this.todos.push(todo);
+    let item: ITodoModel = {
+      id: this.todoCounter++,
+      name: todo,
+      completed: false
+    };
+    this.todos.push(item);
     this.todo = '';
+  }
+
+  toggleCheckbox(item: ITodoModel) {
+    item.completed = !item.completed;
   }
 
 }
