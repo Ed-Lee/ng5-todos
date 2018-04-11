@@ -24,11 +24,13 @@ export class AppComponent {
       completed: false
     };
     this.todos.push(item);
+    this.todos = [...this.todos];
     this.todo = '';
   }
 
   toggleCheckbox(item: ITodoModel) {
     item.completed = !item.completed;
+    this.todos = [...this.todos];
   }
 
 }
