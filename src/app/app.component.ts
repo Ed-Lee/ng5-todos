@@ -11,6 +11,7 @@ export class AppComponent {
   todos: ITodoModel[] = new Array<ITodoModel>();
   todoCounter: number = 0;
   todo: string;
+  filterStatus = 'all';
 
   onEnter(inputElement) {
     this.todos.push(inputElement.value);
@@ -39,6 +40,10 @@ export class AppComponent {
         todo => !todo.completed
       );
     }
+  }
+
+  setFilterStatus(status) {
+    this.filterStatus = status;
   }
 
 }

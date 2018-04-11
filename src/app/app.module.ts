@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import {FormsModule} from "@angular/forms";
 import { FooterComponent } from './footer/footer.component';
+import { FilterByStatusPipe } from './filter-by-status.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TitleComponent,
-    FooterComponent
+    FooterComponent,
+    FilterByStatusPipe
   ],
   imports: [
     BrowserModule,

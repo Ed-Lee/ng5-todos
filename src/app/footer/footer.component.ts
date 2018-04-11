@@ -18,6 +18,7 @@ export class FooterComponent implements OnInit, OnChanges {
   }
 
   @Output() clearCompleted: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() filterStatus: EventEmitter<string> = new EventEmitter<string>();
 
   styleObj = {};
 
@@ -46,5 +47,9 @@ export class FooterComponent implements OnInit, OnChanges {
 
   onClearCompleted(clear: boolean) {
     this.clearCompleted.emit(clear);
+  }
+
+  onFilterStatus(status: string) {
+    this.filterStatus.emit(status);
   }
 }
